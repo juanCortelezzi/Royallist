@@ -5,12 +5,16 @@ import (
 	"github.com/gookit/color"
 	"io/ioutil"
 	"log"
+	"os"
 	"path/filepath"
 )
 
 func main() {
-	files, err := ioutil.ReadDir("./")
-
+	path := "./"
+	if len(os.Args[1:]) > 0 {
+		path = os.Args[1]
+	}
+	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -37,31 +41,25 @@ func main() {
 		fmt.Printf("%s %s\n", cyan(""), d)
 	}
 
+	icons := map[string]string{
+		".ts":   blue(""),
+		".tsx":  blue(""),
+		".json": yellow(""),
+		".go":   blue("ﳑ"),
+		".mod":  white(""),
+		".sum":  white(""),
+		".js":   yellow(""),
+		".jsx":  yellow(""),
+		".css":  blue(""),
+		".html": red(""),
+	}
+
 	for _, f := range filFiles {
 		extension := filepath.Ext(f)
-		switch extension {
-		case ".ts":
-			fmt.Printf("%s %s\n", blue(""), f)
-		case ".tsx":
-			fmt.Printf("%s %s\n", blue(""), f)
-		case ".json":
-			fmt.Printf("%s %s\n", yellow(""), f)
-		case ".go":
-			fmt.Printf("%s %s\n", blue("ﳑ"), f)
-		case ".mod":
-			fmt.Printf("%s %s\n", white(""), f)
-		case ".sum":
-			fmt.Printf("%s %s\n", white(""), f)
-		case ".js":
-			fmt.Printf("%s %s\n", yellow(""), f)
-		case ".jsx":
-			fmt.Printf("%s %s\n", yellow(""), f)
-		case ".css":
-			fmt.Printf("%s %s\n", blue(""), f)
-		case ".html":
-			fmt.Printf("%s %s\n", red(""), f)
-		default:
-			fmt.Printf("%s %s\n", green(""), f)
+		icon, iconExists := icons[extension]
+		if !iconExists {
+			icon = green("")
 		}
+		fmt.Printf("%s %s\n", icon, f)
 	}
 }
