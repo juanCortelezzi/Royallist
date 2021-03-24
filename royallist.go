@@ -34,6 +34,7 @@ func main() {
 	red := color.FgRed.Render
 	yellow := color.FgYellow.Render
 	cyan := color.FgCyan.Render
+	magenta := color.FgMagenta.Render
 	blue := color.FgBlue.Render
 	white := color.FgWhite.Render
 
@@ -48,10 +49,21 @@ func main() {
 		".go":   blue("ﳑ"),
 		".mod":  white(""),
 		".sum":  white(""),
+		".toml":  white(""),
+		".yml":  yellow(""),
 		".js":   yellow(""),
 		".jsx":  yellow(""),
 		".css":  blue(""),
+		".scss":  red(""),
 		".html": red(""),
+		".c": magenta(""),
+		".cpp": blue(""),
+		".py": blue(""),
+		".sh": white(""),
+		".txt": white(""),
+		".rs": white(""),
+		".vim": green(""),
+		".lua": blue(""),
 	}
 
 	for _, f := range filFiles {
