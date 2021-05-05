@@ -14,6 +14,7 @@ func main() {
 	if len(os.Args[1:]) > 0 {
 		path = os.Args[1]
 	}
+
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
@@ -43,27 +44,31 @@ func main() {
 	}
 
 	icons := map[string]string{
-		".ts":   blue(""),
-		".tsx":  blue(""),
+		".c":    magenta(""),
+		".vim":  green(""),
+		".scss": red(""),
+		".html": red(""),
 		".json": yellow(""),
-		".go":   blue("ﳑ"),
-		".mod":  white(""),
-		".sum":  white(""),
-		".toml":  white(""),
 		".yml":  yellow(""),
 		".js":   yellow(""),
 		".jsx":  yellow(""),
+		".cpp":  blue(""),
+		".lua":  blue(""),
+		".py":   blue(""),
+		".go":   blue("ﳑ"),
+		".ts":   blue(""),
 		".css":  blue(""),
-		".scss":  red(""),
-		".html": red(""),
-		".c": magenta(""),
-		".cpp": blue(""),
-		".py": blue(""),
-		".sh": white(""),
-		".txt": white(""),
-		".rs": white(""),
-		".vim": green(""),
-		".lua": blue(""),
+		".tsx":  blue(""),
+		".sh":   white(""),
+		".txt":  white(""),
+		".rs":   white(""),
+		".iso":  white(""),
+		".md":   white(""),
+		".mdx":  white(""),
+		".wiki": white(""),
+		".mod":  white(""),
+		".sum":  white(""),
+		".toml": white(""),
 	}
 
 	for _, f := range filFiles {
