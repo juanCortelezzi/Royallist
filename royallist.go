@@ -75,7 +75,12 @@ func main() {
 		extension := filepath.Ext(f)
 		icon, iconExists := icons[extension]
 		if !iconExists {
-			icon = green("")
+			switch f {
+			case ".gitignore":
+				icon = magenta("G")
+			default:
+				icon = green("")
+			}
 		}
 		fmt.Printf("%s %s\n", icon, f)
 	}
