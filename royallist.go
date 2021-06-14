@@ -56,8 +56,8 @@ func main() {
 		".lua":  blue(""),
 		".py":   blue(""),
 		".go":   blue("ﳑ"),
+		".css":  blue(""),
 		".ts":   blue(""),
-		".css":  blue(""),
 		".tsx":  blue(""),
 		".sh":   white(""),
 		".txt":  white(""),
@@ -77,7 +77,7 @@ func main() {
 		if !iconExists {
 			switch f {
 			case ".gitignore":
-				icon = magenta("G")
+				icon = magenta("")
 			default:
 				icon = green("")
 			}
