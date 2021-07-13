@@ -44,6 +44,7 @@ func main() {
 	}
 
 	icons := map[string]string{
+		".h":    magenta(""),
 		".c":    magenta(""),
 		".vim":  green(""),
 		".scss": red(""),
