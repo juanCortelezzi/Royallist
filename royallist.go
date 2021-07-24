@@ -47,6 +47,7 @@ func main() {
 		".h":    magenta(""),
 		".c":    magenta(""),
 		".vim":  green(""),
+		".zip":  green(""),
 		".scss": red(""),
 		".html": red(""),
 		".json": yellow(""),
