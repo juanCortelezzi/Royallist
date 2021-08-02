@@ -50,6 +50,7 @@ func main() {
 		".zip":  green(""),
 		".scss": red(""),
 		".html": red(""),
+		".pdf":  red(""),
 		".json": yellow(""),
 		".yml":  yellow(""),
 		".js":   yellow(""),
