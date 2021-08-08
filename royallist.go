@@ -55,6 +55,7 @@ func main() {
 		".yml":  yellow(""),
 		".js":   yellow(""),
 		".jsx":  yellow(""),
+		".mp4":  blue(""),
 		".cpp":  blue(""),
 		".lua":  blue(""),
 		".py":   blue(""),
