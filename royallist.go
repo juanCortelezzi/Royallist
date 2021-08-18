@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/gookit/color"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
+	"royallist/icons"
 )
 
 func main() {
@@ -20,74 +20,35 @@ func main() {
 		log.Fatal(err)
 	}
 
-	filDirectories := make([]string, 0, len(files))
-	filFiles := make([]string, 0, len(files))
+	directoryArr := make([]string, 0, len(files))
+	fileArr := make([]string, 0, len(files))
 
 	for _, f := range files {
+		fmt.Println("raw: ", f.Name())
 		if f.IsDir() {
-			filDirectories = append(filDirectories, f.Name())
+			directoryArr = append(directoryArr, f.Name())
 		} else {
-			filFiles = append(filFiles, f.Name())
+			fileArr = append(fileArr, f.Name())
 		}
 	}
 
-	green := color.FgGreen.Render
-	red := color.FgRed.Render
-	yellow := color.FgYellow.Render
-	cyan := color.FgCyan.Render
-	magenta := color.FgMagenta.Render
-	blue := color.FgBlue.Render
-	white := color.FgWhite.Render
-
-	for _, d := range filDirectories {
-		fmt.Printf("%s %s\n", cyan(""), d)
+	for _, directory := range directoryArr {
+		fmt.Printf("%s %s\n", icons.Names["directory"], directory)
 	}
 
-	icons := map[string]string{
-		".h":    magenta(""),
-		".c":    magenta(""),
-		".jpg":  magenta(""),
-		".png":  magenta(""),
-		".vim":  green(""),
-		".zip":  green(""),
-		".scss": red(""),
-		".html": red(""),
-		".pdf":  red(""),
-		".json": yellow(""),
-		".yml":  yellow(""),
-		".js":   yellow(""),
-		".jsx":  yellow(""),
-		".mp4":  blue(""),
-		".cpp":  blue(""),
-		".lua":  blue(""),
-		".py":   blue(""),
-		".go":   blue("ﳑ"),
-		".css":  blue(""),
-		".ts":   blue(""),
-		".tsx":  blue(""),
-		".sh":   white(""),
-		".txt":  white(""),
-		".rs":   white(""),
-		".iso":  white(""),
-		".md":   white(""),
-		".mdx":  white(""),
-		".wiki": white(""),
-		".mod":  white(""),
-		".sum":  white(""),
-		".toml": white(""),
-	}
+	for _, file := range fileArr {
+		extension := filepath.Ext(file)
 
-	for _, f := range filFiles {
-		extension := filepath.Ext(f)
-		icon, iconExists := icons[extension]
-		if !iconExists {
-			switch f {
-			case ".gitignore":
-				icon = magenta("")
-			default:
-				icon = green("")
-			}
+		if icon, iconExists := icons.Filetypes[extension]; iconExists {
+			fmt.Printf("%s %s\n", icon, file)
+			continue
 		}
-		fmt.Printf("%s %s\n", icon, f)
+
+		if icon, iconExists := icons.Names[file]; iconExists {
+			fmt.Printf("%s %s\n", icon, file)
+			continue
+		}
+
+		fmt.Printf("%s %s\n", icons.Names["file"], file)
 	}
 }
