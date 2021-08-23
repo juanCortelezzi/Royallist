@@ -9,11 +9,23 @@ Don't be surprised, it's just ls with icons written in Go
 Call royallist and watch you current directory files shine in the terminal. If you want to use
 another directory, pass it as a first argument just like "ls" and on you go.
 ```bash
+# To print local directory
 royallist
 
-or
-
+# Or add as a parameter the desired directory
 royallist ~/Documents
+
+# Or even multiple
+royallist ~/Documents ~/Pictures
+
+
+# Recursive/tree view (only one directory)
+royallist -r
+royallist -r ~/Documents
+
+# For help
+royallist -h
+royallist --help
 ```
 
 For ease of use, I recommend aliasing Royallist to a simpler command:
@@ -28,4 +40,5 @@ alias l="royallist"
 
 Please note you need a NerdFont or similar.
 
-In order to install, compile the source code, or just Follow release instructions
+In order to install, compile the source code, or just Follow release
+instructions.
