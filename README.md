@@ -1,8 +1,10 @@
+[![build on release](https://github.com/juanCortelezzi/Royallist/actions/workflows/build-on-release.yml/badge.svg)](https://github.com/juanCortelezzi/Royallist/actions/workflows/build-on-release.yml)
+
 # Royallist
 
 A glorified "ls" command.
 
-Don't be surprised, it's just ls with icons written in Go
+Don't be surprised, it's just ls with icons and written in Go
 
 ## How to use?
 
