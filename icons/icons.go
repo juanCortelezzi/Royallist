@@ -24,6 +24,7 @@ var Filetypes = map[string]string{
 	".pdf":  red(""),
 	".json": yellow(""),
 	".yml":  yellow(""),
+	".yaml": yellow(""),
 	".js":   yellow(""),
 	".jsx":  yellow(""),
 	".mp4":  blue(""),
@@ -36,6 +37,7 @@ var Filetypes = map[string]string{
 	".tsx":  blue(""),
 	".sh":   white(""),
 	".txt":  white(""),
+	".mk":   white(""),
 	".rs":   white(""),
 	".iso":  white(""),
 	".md":   white(""),
@@ -49,5 +51,7 @@ var Filetypes = map[string]string{
 var Names = map[string]string{
 	"directory":  cyan(""),
 	"file":       green(""),
+	"LICENSE":    white("ﲘ"),
+	"Makefile":   white(""),
 	".gitignore": magenta(""),
 }
